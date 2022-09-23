@@ -15,6 +15,9 @@ loginctl enable-linger monero
 # Change user
 su monero
 
+# Install monero client
+$HOME/update.sh
+
 # Fix access to systemctl
 echo "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus" >> $HOME/.bashrc
 
