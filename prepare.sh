@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-sudo chroot ~/mnt /bin/ls -l
+# Show contents of image
+ls -l
+
+# Create monero user
+adduser --disabled-password --gecos "" monero
