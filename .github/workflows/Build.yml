@@ -28,10 +28,12 @@ jobs:
         path: ~/image
         key: ${{ runner.os }}-ubuntu-image-${{ env.image-url }}
 
-    - name: Download and unpack image
+    - name: Download image
       if: steps.cache-image.outputs.cache-hit != 'true'
-      run: | 
-           wget ${{ env.image-url }} -O ~/image/ubuntu.img.xz
+      run: wget ${{ env.image-url }} -O ~/image/ubuntu.img.xz
+           
+    - name: Unpack image
+      run: |
            cp ~/image/ubuntu.img.xz ~/build/ubuntu.img.xz
            unxz ~/build/ubuntu.img.xz
       
