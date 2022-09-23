@@ -1,0 +1,36 @@
+name: Build
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+    
+jobs:
+  Publish:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      
+    - name: Install mount-img
+      run: curl -fs https://raw.githubusercontent.com/mafintosh/mount-img/master/install | sh
+
+    - name: Download and unpack image
+      run: | 
+           wget https://cdimage.ubuntu.com/releases/22.04.1/release/ubuntu-22.04.1-preinstalled-server-arm64+raspi.img.xz -O ubuntu.img.xz
+           unxz ubuntu.img.xz
+      
+    - name: Mount image
+      run: |
+           mkdir -p ~/mnt
+           mount-img ubuntu.img ~/mnt
+           
+    - name: Apply changes
+      run: |
+           chmod +x prepare.sh
+           prepare.sh
+           
+    - name: Unmount image
+      run: umount ~/mnt
+      
+    - name: Pack image
+      run: xz ubuntu.img
