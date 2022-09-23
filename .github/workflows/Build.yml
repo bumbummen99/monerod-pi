@@ -44,10 +44,10 @@ jobs:
       run: |
            chmod +x prepare.sh
            sudo mkdir -p ~/mnt/home/monero
-           cp update.sh ~/mnt/home/monero/update.sh && chmod +x ~/mnt/home/monero/update.sh
-           cp monerod.conf ~/mnt/home/monero/monerod.conf && chmod +x ~/mnt/home/monero/monerod.conf
-           cp monerod.service ~/mnt/home/monero/monerod.service && chmod +x ~/mnt/home/monero/monerod.service
-           chroot ~/mnt ./prepare.sh
+           sudo cp update.sh ~/mnt/home/monero/update.sh && chmod +x ~/mnt/home/monero/update.sh
+           sudo cp monerod.conf ~/mnt/home/monero/monerod.conf && chmod +x ~/mnt/home/monero/monerod.conf
+           sudo cp monerod.service ~/mnt/home/monero/monerod.service && chmod +x ~/mnt/home/monero/monerod.service
+           sudo chroot ~/mnt ./prepare.sh
            
     - name: Unmount image
       run: sudo umount ~/mnt
