@@ -1,0 +1,16 @@
+[Unit]
+Description=Monero Full Node
+After=network.target
+
+[Service]
+WorkingDirectory=/home/monero/software
+StateDirectory=monero
+LogsDirectory=monero
+Type=simple
+ExecStart=/home/monero/software/monerod --config-file /home/monero/monerod.conf --non-interactive
+StandardOutput=null
+StandardError=null
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
