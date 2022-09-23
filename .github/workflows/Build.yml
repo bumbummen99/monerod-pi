@@ -7,6 +7,8 @@ on:
 jobs:
   Publish:
     runs-on: ubuntu-22.04
+    env:
+        image-url: https://cdimage.ubuntu.com/releases/22.04.1/release/ubuntu-22.04.1-preinstalled-server-arm64+raspi.img.xz
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -20,15 +22,13 @@ jobs:
            
     - name: Cache image
       uses: actions/cache@v3
-      env:
-        image-url: https://cdimage.ubuntu.com/releases/22.04.1/release/ubuntu-22.04.1-preinstalled-server-arm64+raspi.img.xz
       with:
         path: ~/image
         key: ${{ runner.os }}-build-${{ env.image-url }}
 
     - name: Download and unpack image
       run: | 
-           wget https://cdimage.ubuntu.com/releases/22.04.1/release/ubuntu-22.04.1-preinstalled-server-arm64+raspi.img.xz -O ~/image/ubuntu.img.xz
+           wget ${{ env.image-url }} -O ~/image/ubuntu.img.xz
            unxz ~/image/ubuntu.img.xz
       
     - name: Mount image
