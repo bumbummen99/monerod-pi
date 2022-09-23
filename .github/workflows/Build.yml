@@ -42,11 +42,11 @@ jobs:
            
     - name: Apply changes
       run: |
-           chmod +x prepare.sh
            sudo mkdir -p ~/mnt/home/monero
            sudo cp update.sh ~/mnt/home/monero/update.sh && chmod +x ~/mnt/home/monero/update.sh
            sudo cp monerod.conf ~/mnt/home/monero/monerod.conf && chmod +x ~/mnt/home/monero/monerod.conf
            sudo cp monerod.service ~/mnt/home/monero/monerod.service && chmod +x ~/mnt/home/monero/monerod.service
+           chmod +x prepare.sh
            sudo chroot ~/mnt ./prepare.sh
            
     - name: Unmount image
