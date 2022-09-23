@@ -4,6 +4,7 @@
 ls -l
 
 # Install dependencies
+apt-get update
 apt-get install -y bzip2
 
 # Create monero user
@@ -31,3 +32,6 @@ ln -s $HOME/monerod.service $HOME/.config/systemd/user/monerod.service
 # Enable the monerod service and make sure it is stopped
 systemctl --user enable monerod.service
 systemctl --user stop monerod.service
+
+# Clean apt-get cache
+rm -rf /var/lib/apt/lists/*
