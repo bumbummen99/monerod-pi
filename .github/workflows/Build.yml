@@ -29,7 +29,7 @@ jobs:
            unxz ~/image/ubuntu.img.xz
       
     - name: Mount image
-      run: mount-img ~/image/ubuntu.img ~/mnt -p 3
+      run: mount-img ~/image/ubuntu.img ~/mnt -p 2
            
     - name: Apply changes
       run: |
