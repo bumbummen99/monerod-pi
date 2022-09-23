@@ -18,6 +18,7 @@ jobs:
            curl -fs https://raw.githubusercontent.com/mafintosh/mount-img/master/install | sh
            sudo apt-get install -y qemu-user-static && sudo systemctl restart systemd-binfmt.service
            mkdir -p ~/image
+           mkdir -p ~/build
            mkdir -p ~/mnt
            
     - name: Cache image
@@ -29,10 +30,11 @@ jobs:
     - name: Download and unpack image
       run: | 
            wget ${{ env.image-url }} -O ~/image/ubuntu.img.xz
-           unxz ~/image/ubuntu.img.xz
+           cp ~/image/ubuntu.img.xz ~/build/ubuntu.img.xz
+           unxz ~/build/ubuntu.img.xz
       
     - name: Mount image
-      run: mount-img ~/image/ubuntu.img ~/mnt -p 2
+      run: mount-img ~/build/ubuntu.img ~/mnt -p 2
            
     - name: Apply changes
       run: |
@@ -43,9 +45,9 @@ jobs:
       run: sudo umount ~/mnt
       
     - name: Compress image
-      run: xz --compress ~/image/ubuntu.img
+      run: xz --compress ~/build/ubuntu.img
     
     - uses: actions/upload-artifact@v3
       with:
         name: ubuntu.img.xz
-        path: ~/image/ubuntu.img.xz
+        path: ~/build/ubuntu.img.xz
