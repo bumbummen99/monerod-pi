@@ -23,11 +23,13 @@ jobs:
            
     - name: Cache image
       uses: actions/cache@v3
+      id: cache-image
       with:
         path: ~/image
         key: ${{ runner.os }}-ubuntu-image-${{ env.image-url }}
 
     - name: Download and unpack image
+      if: steps.cache-image.outputs.cache-hit != 'true'
       run: | 
            wget ${{ env.image-url }} -O ~/image/ubuntu.img.xz
            cp ~/image/ubuntu.img.xz ~/build/ubuntu.img.xz
