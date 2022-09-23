@@ -11,8 +11,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
       
-    - name: Install mount-img
-      run: curl -fs https://raw.githubusercontent.com/mafintosh/mount-img/master/install | sh
+    - name: Install dependencies
+      run: |
+           curl -fs https://raw.githubusercontent.com/mafintosh/mount-img/master/install | sh
+           apt-get install -y qemu-user-static
 
     - name: Download and unpack image
       run: | 
