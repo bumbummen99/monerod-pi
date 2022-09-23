@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-MOUNT=~/mnt
+sudo chroot ~/mnt /bin/bash
 
-ls -l $MOUNT
+ls -l
