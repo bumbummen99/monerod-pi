@@ -20,8 +20,11 @@ jobs:
            
     - name: Cache image
       uses: actions/cache@v3
+      env:
+        image-url: https://cdimage.ubuntu.com/releases/22.04.1/release/ubuntu-22.04.1-preinstalled-server-arm64+raspi.img.xz
       with:
         path: ~/image
+        key: ${{ runner.os }}-build-${{ env.image-url }}
 
     - name: Download and unpack image
       run: | 
