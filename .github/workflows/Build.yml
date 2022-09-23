@@ -24,7 +24,7 @@ jobs:
     - name: Mount image
       run: |
            mkdir -p ~/mnt
-           mount-img ubuntu.img ~/mnt
+           mount-img ubuntu.img ~/mnt -p 3
            
     - name: Apply changes
       run: |
