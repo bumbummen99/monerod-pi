@@ -30,7 +30,7 @@ jobs:
            ./prepare.sh
            
     - name: Unmount image
-      run: umount ~/mnt
+      run: sudo umount ~/mnt
       
     - name: Pack image
       run: xz ubuntu.img
