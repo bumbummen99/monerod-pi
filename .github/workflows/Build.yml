@@ -25,7 +25,7 @@ jobs:
       uses: actions/cache@v3
       with:
         path: ~/image
-        key: ${{ runner.os }}-build-${{ env.image-url }}
+        key: ${{ runner.os }}-ubuntu-image-${{ env.image-url }}
 
     - name: Download and unpack image
       run: | 
