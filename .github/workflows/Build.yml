@@ -11,20 +11,25 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
       
-    - name: Install dependencies
+    - name: Install dependencies and prepare
       run: |
            curl -fs https://raw.githubusercontent.com/mafintosh/mount-img/master/install | sh
            sudo apt-get install -y qemu-user-static && sudo systemctl restart systemd-binfmt.service
+           mkdir -p ~/image
+           mkdir -p ~/mnt
+           
+    - name: Cache image
+      uses: actions/cache@v3
+      with:
+        path: ~/image
 
     - name: Download and unpack image
       run: | 
-           wget https://cdimage.ubuntu.com/releases/22.04.1/release/ubuntu-22.04.1-preinstalled-server-arm64+raspi.img.xz -O ubuntu.img.xz
-           unxz ubuntu.img.xz
+           wget https://cdimage.ubuntu.com/releases/22.04.1/release/ubuntu-22.04.1-preinstalled-server-arm64+raspi.img.xz -O ~/image/ubuntu.img.xz
+           unxz ~/image/ubuntu.img.xz
       
     - name: Mount image
-      run: |
-           mkdir -p ~/mnt
-           mount-img ubuntu.img ~/mnt -p 3
+      run: mount-img ~/image/ubuntu.img ~/mnt -p 3
            
     - name: Apply changes
       run: |
@@ -35,9 +40,9 @@ jobs:
       run: sudo umount ~/mnt
       
     - name: Compress image
-      run: xz --compress ubuntu.img
+      run: xz --compress ~/image/ubuntu.img
     
     - uses: actions/upload-artifact@v3
       with:
         name: ubuntu.img.xz
-        path: ubuntu.img.xz
+        path: ~/image/ubuntu.img.xz
