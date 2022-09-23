@@ -34,8 +34,8 @@ jobs:
     - name: Unmount image
       run: sudo umount ~/mnt
       
-    - name: Pack image
-      run: xz ubuntu.img
+    - name: Compress image
+      run: xz --compress ubuntu.img
     
     - uses: actions/upload-artifact@v3
       with:
