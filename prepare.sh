@@ -3,6 +3,9 @@
 # Show contents of image
 ls -l
 
+# Install dependencies
+apt-get install -y bzip2
+
 # Create monero user
 adduser --disabled-password --gecos "" monero
 
