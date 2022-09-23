@@ -27,7 +27,7 @@ jobs:
     - name: Apply changes
       run: |
            chmod +x prepare.sh
-           prepare.sh
+           ./prepare.sh
            
     - name: Unmount image
       run: umount ~/mnt
