@@ -2,4 +2,4 @@
 
 sudo chroot ~/mnt '/usr/bin/env bash'
 
-ls -l
+ls -l ~/mnt
