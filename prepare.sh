@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-ls -l
+MOUNT=~/mnt
+
+ls -l $MOUNT
