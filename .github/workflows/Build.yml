@@ -16,13 +16,10 @@ jobs:
     - name: Install dependencies and prepare
       run: |
            curl -fs https://raw.githubusercontent.com/mafintosh/mount-img/master/install | sh
-           sudo apt-get install -y proot
+           sudo apt-get install -y proot qemu qemu-user qemu-system-arm
            mkdir -p ~/image
            mkdir -p ~/build
            mkdir -p ~/mnt
-
-    - name: Set up QEMU
-      uses: docker/setup-qemu-action@v2
            
     - name: Cache image
       uses: actions/cache@v3
