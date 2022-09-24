@@ -48,7 +48,7 @@ jobs:
            chmod +x monerod.service && sudo cp monerod.service ~/mnt/home/monero/monerod.service
            chmod +x prepare.sh && sudo cp prepare.sh ~/mnt/prepare
            sudo chroot ~/mnt /prepare
-           sudo rm ~/mnt/prepare.sh
+           sudo rm ~/mnt/prepare
            
     - name: Unmount image
       run: sudo umount ~/mnt
