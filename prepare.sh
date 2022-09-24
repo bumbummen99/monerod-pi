@@ -17,10 +17,10 @@ sudo chown monero:monero -R /home/monero
 sudo loginctl enable-linger monero
 
 # Change user
-su monero && . /home/monero/.bashrc && cd ~
+su monero && . /home/monero/.bashrc && cd /home/monero
 
 # Install monero client
-$HOME/update.sh
+./update.sh
 
 # Fix access to systemctl
 echo "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus" >> $HOME/.bashrc
