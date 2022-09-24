@@ -4,17 +4,17 @@
 ls -l
 
 # Install dependencies
-apt-get update
-apt-get install -y bzip2
+sudo apt-get update
+sudo apt-get install -y bzip2
 
 # Create monero user
-adduser --disabled-password --gecos "" monero
+sudo adduser --disabled-password --gecos "" monero
 
 # Own pre-occupied home
-chown monero:monero -R /home/monero
+sudo chown monero:monero -R /home/monero
 
 # Allow user services to linger
-loginctl enable-linger monero
+sudo loginctl enable-linger monero
 
 # Change user
 su monero
