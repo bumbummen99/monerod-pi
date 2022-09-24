@@ -52,6 +52,7 @@ jobs:
            chmod +x monerod.service && sudo cp monerod.service ~/mnt/home/monero/monerod.service
            chmod +x prepare.sh && sudo cp prepare.sh ~/mnt/prepare
            cd ~/mnt
+           which qemu-arm
            sudo proot -q qemu-arm /usr/bin/ls -l
            cd ~/monerod-pi
            sudo rm ~/mnt/prepare
