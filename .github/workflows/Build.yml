@@ -43,6 +43,7 @@ jobs:
            
     - name: Apply changes
       run: |
+           pwd
            cd ~/mnt
            sudo proot -0 -q qemu-arm -b ~/monerod-pi:/monerod-pi ~/mnt/prepare
            cd ~/monerod-pi
