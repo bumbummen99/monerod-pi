@@ -17,7 +17,7 @@ sudo chown monero:monero -R /home/monero
 sudo loginctl enable-linger monero
 
 # Change user
-su monero && cd ~ && . ~/.bashrc
+su monero && . /home/monero/.bashrc && cd ~
 
 # Install monero client
 $HOME/update.sh
