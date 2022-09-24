@@ -9,9 +9,9 @@ sudo apt-get install -y bzip2
 
 # Create monero user
 sudo adduser --disabled-password --gecos "" monero
-chmod +x /monero-pi/update.sh && sudo cp /monero-pi/update.sh /home/monero/update.sh
-chmod +x /monero-pi/monerod.conf && sudo cp /monero-pi/monerod.conf /home/monero/monerod.conf
-chmod +x /monero-pi/monerod.service && sudo cp /monero-pi/monerod.service /home/monero/monerod.service
+chmod +x /monerod-pi/update.sh && sudo cp /monerod-pi/update.sh /home/monero/update.sh
+chmod +x /monerod-pi/monerod.conf && sudo cp /monerod-pi/monerod.conf /home/monero/monerod.conf
+chmod +x /monerod-pi/monerod.service && sudo cp /monerod-pi/monerod.service /home/monero/monerod.service
 sudo chown monero:monero -R /home/monero
 
 # Allow user services to linger
