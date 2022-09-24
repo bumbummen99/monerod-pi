@@ -19,17 +19,17 @@ sudo loginctl enable-linger monero
 # Change user
 su monero
 cd /home/monero
-. /home/monero/.bashrc
 
 # Install monero client
-./update.sh
+/home/monero/update.sh
 
 # Fix access to systemctl
 echo "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus" >> ./.bashrc
+. /home/monero/.bashrc
 
 # Link service file 
-mkdir -p ./.config/systemd/user
-ln -s monerod.service ./.config/systemd/user/monerod.service
+mkdir -p /home/monero/.config/systemd/user
+ln -s /home/monero/monerod.service /home/monero/.config/systemd/user/monerod.service
 
 # Enable the monerod service and make sure it is stopped
 systemctl --user enable monerod.service
