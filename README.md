@@ -3,9 +3,18 @@ A simple Ubuntu server imnage for raspberry pi with monero full node installed a
 
 # Setup
 1) Simply download and write the image to your SD card using etcher or similar software.
-2) Boot up the system and ssh into it
+2) Boot up the system and ssh into it (password is ubuntu)
+   ```
+   ssh ubuntu@IP-OF-YOUR-PI
+   ```
 3) Change to the monero user and change directory to home
+   ```
+   su monero && cd ~
+   ```
 4) Edit the monerod.conf to your needs
+   ```
+   nano monerod.conf
+   ```
 5) If you use an external drive, make sure to mount it via /etc/fstab
    ```
    /dev/sda1 /external ext4 defaults 0 1
