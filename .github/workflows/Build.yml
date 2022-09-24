@@ -53,7 +53,7 @@ jobs:
            chmod +x prepare.sh && sudo cp prepare.sh ~/mnt/prepare
            cd ~/mnt
            which qemu-arm
-           sudo proot -q qemu-arm /usr/bin/ls -l
+           sudo proot -q qemu-arm ~/mnt/prepare
            cd ~/monerod-pi
            sudo rm ~/mnt/prepare
            
