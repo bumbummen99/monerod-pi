@@ -25,7 +25,7 @@ cd /home/monero
 /home/monero/update.sh
 
 # Fix access to systemctl
-echo "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus" >> ./.bashrc
+echo "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus" >> /home/monero/.bashrc
 
 # Link service file 
 mkdir -p /home/monero/.config/systemd/user
