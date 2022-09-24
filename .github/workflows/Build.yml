@@ -48,7 +48,9 @@ jobs:
            chmod +x monerod.conf && sudo cp monerod.conf ~/mnt/home/monero/monerod.conf
            chmod +x monerod.service && sudo cp monerod.service ~/mnt/home/monero/monerod.service
            chmod +x prepare.sh && sudo cp prepare.sh ~/mnt/prepare
-           sudo proot -q qemu-arm -r ~/mnt ~/mnt/prepare
+           cd ~/mnt
+           sudo proot -q qemu-arm ~/mnt/prepare
+           cd ~/monerod-pi
            sudo rm ~/mnt/prepare
            
     - name: Unmount image
