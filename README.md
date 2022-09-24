@@ -1,5 +1,5 @@
 # Monerod Pi
-A simple Ubuntu server imnage for raspberry pi with monero full node installed and ready.
+A simple Ubuntu server image for raspberry pi with monero full node installed and ready.
 
 # Setup
 1) Simply download and write the image to your SD card using etcher or similar software.
