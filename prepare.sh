@@ -33,9 +33,5 @@ echo "DBUS_SESSION_BUS_ADDRESS=$DBUS_SESSION_BUS_ADDRESS" >> ./.bashrc
 mkdir -p /home/monero/.config/systemd/user
 ln -s /home/monero/monerod.service /home/monero/.config/systemd/user/monerod.service
 
-# Enable the monerod service and make sure it is stopped
-systemctl --user enable monerod.service
-systemctl --user stop monerod.service
-
 # Clean apt-get cache
 rm -rf /var/lib/apt/lists/*
