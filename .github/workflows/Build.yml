@@ -45,7 +45,7 @@ jobs:
       run: |
            pwd
            cd ~/mnt
-           sudo proot -0 -q qemu-arm -b /home/runner/work/monerod-pi/monerod-pi:/monerod-pi ~/mnt/prepare
+           sudo proot -0 -b /home/runner/work/monerod-pi/monerod-pi:/monerod-pi -q qemu-arm ~/mnt/prepare
            cd ~/monerod-pi
            sudo rm ~/mnt/prepare
            
