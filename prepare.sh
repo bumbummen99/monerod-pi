@@ -23,11 +23,11 @@ su monero && . /home/monero/.bashrc && cd /home/monero
 ./update.sh
 
 # Fix access to systemctl
-echo "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus" >> $HOME/.bashrc
+echo "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus" >> ./.bashrc
 
 # Link service file 
-mkdir -p $HOME/.config/systemd/user
-ln -s monerod.service $HOME/.config/systemd/user/monerod.service
+mkdir -p ./.config/systemd/user
+ln -s monerod.service ./.config/systemd/user/monerod.service
 
 # Enable the monerod service and make sure it is stopped
 systemctl --user enable monerod.service
