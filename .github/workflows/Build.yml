@@ -46,8 +46,8 @@ jobs:
            chmod +x prepare.sh
            sudo cp prepare.sh ~/mnt/prepare
            cd ~/mnt
-           sudo proot -0 -b /home/runner/work/monerod-pi/monerod-pi:/monerod-pi -q qemu-arm ~/mnt/prepare
-           cd ~/monerod-pi
+           sudo proot -0 -b ~/work/monerod-pi/monerod-pi:/monerod-pi -q qemu-arm ~/mnt/prepare
+           cd ~/work/monerod-pi/monerod-pi
            sudo rm ~/mnt/prepare
            
     - name: Unmount image
