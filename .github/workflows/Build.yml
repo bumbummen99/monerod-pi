@@ -43,11 +43,6 @@ jobs:
            
     - name: Apply changes
       run: |
-           sudo mkdir -p ~/mnt/home/monero
-           chmod +x update.sh && sudo cp update.sh ~/mnt/home/monero/update.sh
-           chmod +x monerod.conf && sudo cp monerod.conf ~/mnt/home/monero/monerod.conf
-           chmod +x monerod.service && sudo cp monerod.service ~/mnt/home/monero/monerod.service
-           chmod +x prepare.sh && sudo cp prepare.sh ~/mnt/prepare
            cd ~/mnt
            sudo proot -0 -q qemu-arm -b ~/monerod-pi:/monerod-pi ~/mnt/prepare
            cd ~/monerod-pi
