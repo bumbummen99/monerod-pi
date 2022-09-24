@@ -16,8 +16,7 @@ jobs:
     - name: Install dependencies and prepare
       run: |
            curl -fs https://raw.githubusercontent.com/mafintosh/mount-img/master/install | sh
-           docker run --rm --privileged multiarch/qemu-user-static --credential yes --persistent yes
-           sudo apt-get install -y proot && sudo systemctl restart systemd-binfmt.service
+           sudo apt-get install -y qemu-user-static proot && sudo systemctl restart systemd-binfmt.service
            mkdir -p ~/image
            mkdir -p ~/build
            mkdir -p ~/mnt
@@ -48,7 +47,7 @@ jobs:
            chmod +x monerod.conf && sudo cp monerod.conf ~/mnt/home/monero/monerod.conf
            chmod +x monerod.service && sudo cp monerod.service ~/mnt/home/monero/monerod.service
            chmod +x prepare.sh && sudo cp prepare.sh ~/mnt/prepare
-           sudo proot -q qemu-arm -r ~/mnt /prepare
+           sudo proot -q qemu-arm -b /data:/data -b /proc:/proc -b /system:/system -b /dev:/dev -r ~/mnt /prepare
            sudo rm ~/mnt/prepare
            
     - name: Unmount image
