@@ -11,7 +11,10 @@ jobs:
         image-url: https://cdimage.ubuntu.com/releases/22.04.1/release/ubuntu-22.04.1-preinstalled-server-arm64+raspi.img.xz
     steps:
     - name: Checkout
-      uses: actions/checkout@v3    
+      uses: actions/checkout@v3
+      
+    - name: Show hostname
+      run: hostname
            
     - name: Apply changes
       run: docker run --rm --privileged -v /dev:/dev -v ${PWD}:/build mkaczanowski/packer-builder-arm build boards/raspberry-pi-3/ubuntu-server-arm64.pkr.hcl
