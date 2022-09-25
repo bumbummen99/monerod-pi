@@ -31,9 +31,10 @@ echo "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus" >> /home/monero
 mkdir -p /home/monero/.config/systemd/user
 ln -s /home/monero/monerod.service /home/monero/.config/systemd/user/monerod.service
 
-# Create update crontab
-(crontab -l 2>/dev/null; echo "0 0 * * * /home/monero/update.sh && /bin/systemctl --user restart monerod.service") | crontab -
-ls -l /var/spool/cron/crontabs
+# Add crontab entry for update
+echo "0 0 * * * /home/monero/update.sh && /bin/systemctl --user restart monerod.service" >> /var/spool/cron/crontabs/monero
+chown monero:monero /var/spool/cron/crontabs/monero
+chmod 600 /var/spool/cron/crontabs/monero
 
 # Clean apt-get cache
 rm -rf /var/lib/apt/lists/*
