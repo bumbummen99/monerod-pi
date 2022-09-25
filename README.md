@@ -8,7 +8,7 @@ A simple to install ubuntu server image for running a monero full node on raspbe
 
 # Setup
 1) Simply download and write the image to your SD card using etcher or similar software.
-2) Boot up the system and ssh into it (password is ubuntu)
+2) Boot up the system and ssh into it (password is `ubuntu`)
    ```
    ssh ubuntu@IP-OF-YOUR-PI
    ```
@@ -20,7 +20,7 @@ A simple to install ubuntu server image for running a monero full node on raspbe
    ```
    nano monerod.conf
    ```
-5) If you use an external drive, make sure to mount it via /etc/fstab
+5) If you use an external drive, make sure to mount it via `/etc/fstab`
    ```
    /dev/sda1 /external ext4 defaults 0 1
    ```
