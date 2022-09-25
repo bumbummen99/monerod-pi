@@ -34,8 +34,11 @@ build {
   
   provisioner "shell" {
     inline = [
+      "mv /etc/resolv.conf /etc/resolv.conf.bk",                                                   # Backup resolv.conf
+      "echo 'nameserver 8.8.8.8' > /etc/resolv.conf",                                              # Use google nameserver for apt-get
       "sudo apt-get update && sudo apt-get install -y bzip2",                                      # Install dependencies
-      "sudo adduser --disabled-password --gecos \"\" monero",                                        # Create user to run the monero node
+      "mv /etc/resolv.conf.bk /etc/resolv.conf",                                                   # Restore resolv.conf
+      "sudo adduser --disabled-password --gecos \"\" monero",                                      # Create user to run the monero node
       "sudo loginctl enable-linger monero",                                                        # Enable user services to run on boot
       "su monero",                                                                                 # Change user to monero
       "mkdir -p /home/monero/.config/systemd/user",                                                # Create the users services directory
