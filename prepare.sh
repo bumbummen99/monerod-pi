@@ -36,5 +36,7 @@ echo "0 0 * * * /home/monero/update.sh && /bin/systemctl --user restart monerod.
 chown monero:monero /var/spool/cron/crontabs/monero
 chmod 600 /var/spool/cron/crontabs/monero
 
+ls -l /var/spool/cron/crontabs
+
 # Clean apt-get cache
 rm -rf /var/lib/apt/lists/*
