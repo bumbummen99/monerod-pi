@@ -31,9 +31,9 @@ A simple to install ubuntu server image for running a monero full node on raspbe
    ```
    
 # RAM
-(Older) Raspberry Pi's are not known for their plentiful RAM, therefore it is necessary to create a swap file to prevent an OOM and crash. To do so simply use the following commands:
+(Older) Raspberry Pi's are not known for their plentiful RAM, therefore it is necessary to create a swap file to prevent an OOM and crash during the initial sync. A fully synced node can easily run with the 1GB of ram. To add swap space simply use the following commands:
 ```
-sysctl vm.swappiness=1
+sudo sysctl vm.swappiness=1
 sudo fallocate -l 2G /swapfile
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
