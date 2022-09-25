@@ -11,7 +11,7 @@ A simple Ubuntu server image for raspberry pi with monero full node installed an
    ```
    su monero && cd ~
    ```
-4) Edit the monerod.conf to your needs
+4) Edit the [monerod.conf](https://monerodocs.org/interacting/monero-config-file/) to your needs
    ```
    nano monerod.conf
    ```
