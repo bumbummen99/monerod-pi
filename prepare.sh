@@ -16,6 +16,7 @@ sudo chown monero:monero -R /home/monero
 
 # Allow user services to linger
 sudo loginctl enable-linger monero
+cat /etc/systemd/logind.conf | grep KillExcludeUsers
 
 # Change user
 su monero
