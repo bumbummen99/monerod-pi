@@ -35,7 +35,7 @@ build {
   provisioner "shell" {
     inline = [
       "mv /etc/resolv.conf /etc/resolv.conf.bk",                                                   # Backup resolv.conf
-      "echo 'nameserver 8.8.8.8' > /etc/resolv.conf",                                              # Use google nameserver for apt-get
+      "echo 'nameserver 8.8.8.8' >> /etc/resolv.conf",                                             # Add google dns as fallback nameserver for apt-get
       "sudo apt-get update && sudo apt-get install -y bzip2",                                      # Install dependencies
       "mv /etc/resolv.conf.bk /etc/resolv.conf",                                                   # Restore resolv.conf
       "sudo adduser --disabled-password --gecos \"\" monero",                                      # Create user to run the monero node
@@ -59,6 +59,7 @@ build {
     inline = [
       "sudo chown monero:monero -R /home/monero",                                                                                        # Fix ownership of added files
       "su monero",                                                                                                                       # Change user to monero
+      "cd ~",                                                                                                                            # Change directory to users home
       "chmod +x update.sh",                                                                                                              # Make update.sh executable
       "ln -s /home/monero/monerod.service /home/monero/.config/systemd/user/monerod.service",                                            # Link the systemd service file to the users services directory
       "(crontab -l 2>/dev/null; echo \"0 0 * * * /home/monero/update.sh && /bin/systemctl --user restart monerod.service\") | crontab -" # Add crontab to keep monero node up to date
