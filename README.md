@@ -3,7 +3,7 @@ A simple to install ubuntu server image for running a monero full node on raspbe
 
 # Recommendations
 - Use an external drive to prevent SD card wear out (SSD recommended)
-- Use swap space with Pi 3B to prevent OOM
+- Use swap space with Pi 3B to prevent OOM during initial sync
 - Sync initial blockchain on another computer and export it (or download the .raw from the [offical site](https://www.getmonero.org/downloads/#blockchain) on your own risk)
 
 # Setup
