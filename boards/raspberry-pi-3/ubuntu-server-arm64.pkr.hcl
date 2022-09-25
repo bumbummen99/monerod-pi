@@ -59,8 +59,7 @@ build {
     inline = [
       "sudo chown monero:monero -R /home/monero",                                                                                        # Fix ownership of added files
       "su monero",                                                                                                                       # Change user to monero
-      "cd ~",                                                                                                                            # Change directory to users home
-      "chmod +x update.sh",                                                                                                              # Make update.sh executable
+      "chmod +x /home/monero/update.sh",                                                                                                 # Make update.sh executable
       "ln -s /home/monero/monerod.service /home/monero/.config/systemd/user/monerod.service",                                            # Link the systemd service file to the users services directory
       "(crontab -l 2>/dev/null; echo \"0 0 * * * /home/monero/update.sh && /bin/systemctl --user restart monerod.service\") | crontab -" # Add crontab to keep monero node up to date
     ]
