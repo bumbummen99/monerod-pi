@@ -15,7 +15,7 @@ chmod +x /monerod-pi/monerod.service && sudo cp /monerod-pi/monerod.service /hom
 sudo chown monero:monero -R /home/monero
 
 # Allow user services to linger
-touch /var/lib/systemd/linger/monero
+sudo touch /var/lib/systemd/linger/monero
 
 # Change user
 su monero
