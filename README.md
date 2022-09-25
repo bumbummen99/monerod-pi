@@ -1,5 +1,5 @@
 # Monerod Pi
-A simple to install ubuntu server image for running a monero full node on raspberry pi. Become a part of the monero network and never wait for your blockchain to sync again when you want to make transactions by using your raspberry pi as your own local remote node.
+A simple to install pre-configured ubuntu server image for running a monero full node on raspberry pi. Become a part of the monero network and never wait for your blockchain to sync again when you want to make transactions by using your raspberry pi as your own local remote node.
 
 # Recommendations
 - Use an external drive to prevent SD card wear out (SSD recommended)
