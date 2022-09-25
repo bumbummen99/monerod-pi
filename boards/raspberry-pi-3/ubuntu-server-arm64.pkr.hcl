@@ -39,7 +39,10 @@ build {
       "sudo apt-get update && sudo apt-get install -y bzip2",                                      # Install dependencies
       "mv /etc/resolv.conf.bk /etc/resolv.conf",                                                   # Restore resolv.conf
       "sudo adduser --disabled-password --gecos \"\" monero",                                      # Create user to run the monero node
-      "sudo touch /var/lib/systemd/linger/monero",                                                        # Enable user services to run on boot
+      "mkdir -p /var/lib/systemd/linger",                                                          # Enable user services to run on boot
+      "chmod 755 /var/lib/systemd/linger",
+      "sudo touch /var/lib/systemd/linger/monero",
+      "chmod 644 /var/lib/systemd/linger/monero",                                                  
       "su monero",                                                                                 # Change user to monero
       "mkdir -p /home/monero/.config/systemd/user",                                                # Create the users services directory
       "echo \"DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus\" >> /home/monero/.bashrc" # Fix access to systemctl --user
