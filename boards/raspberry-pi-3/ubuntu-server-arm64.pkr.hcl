@@ -39,7 +39,7 @@ build {
   provisioner "shell" {
     inline = [
       "sudo apt-get update && sudo apt-get install -y bzip2",                                      # Install dependencies
-      "sudo adduser --disabled-password --gecos "" monero",                                        # Create user to run the monero node
+      "sudo adduser --disabled-password --gecos \"\" monero",                                        # Create user to run the monero node
       "sudo loginctl enable-linger monero",                                                        # Enable user services to run on boot
       "su monero",                                                                                 # Change user to monero
       "mkdir -p /home/monero/.config/systemd/user",                                                # Create the users services directory
