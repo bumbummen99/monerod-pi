@@ -1,4 +1,4 @@
-name: Build
+name: Packer
 on:
   workflow_dispatch:
   release:
