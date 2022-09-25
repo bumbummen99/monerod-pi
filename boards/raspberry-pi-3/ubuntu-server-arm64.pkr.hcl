@@ -33,10 +33,6 @@ build {
   sources = ["source.arm.ubuntu"]
   
   provisioner "shell" {
-    inline = "prepare.sh"
-  }
-  
-  provisioner "shell" {
     inline = [
       "sudo apt-get update && sudo apt-get install -y bzip2",                                      # Install dependencies
       "sudo adduser --disabled-password --gecos \"\" monero",                                        # Create user to run the monero node
